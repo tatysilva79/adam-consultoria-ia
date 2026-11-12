@@ -1,4 +1,6 @@
 import {useState} from "react";
+import type {ReactNode} from "react";
+import type {LucideIcon} from "lucide-react";
 import {LayoutDashboard,Users,Search,ChartNoAxesCombined,Video,Radio,CalendarDays,Music2,Clock3,ClipboardCheck,FileText,History,Settings,Menu,Settings2,Plus,ArrowRight,Check,Upload,Copy,RefreshCcw,ShieldCheck,LogOut,TrendingUp,Sparkles,PlayCircle,ChartColumn,FolderOpen} from "lucide-react";
 type Client={name:string;handle:string;niche:string;kind:string};
 type Review="Rascunho"|"Em revisão"|"Correção solicitada"|"Aprovado";
@@ -13,8 +15,8 @@ const [page,setPage]=useState(0),[open,setOpen]=useState(false),[clients,setClie
 const notify=(s:string)=>{setToast(s);};
 const go=(n:number)=>{setPage(n);setOpen(false);setToast("");};
 const addClient=()=>{if(!name.trim()||!handle.trim()){notify("Informe o nome e o @ do cliente.");return;}setClients(x=>[...x,{name:name.trim(),handle:handle.trim(),niche:niche.trim()||"Não informado",kind}]);setName("");setHandle("");setNiche("");notify("Cliente adicionado somente nesta sessão demonstrativa.");};
-const title=names[page];const stats=[["Clientes cadastrados",clients.length,Users],["Consultorias em análise",0,Search],["Aguardando revisão",review==="Em revisão"?1:0,ClipboardCheck],["Relatórios aprovados",review==="Aprovado"?1:0,FileText],["Planejamentos criados",0,CalendarDays],["Consultorias entregues",0,Check],["Vídeos analisados",0,Video]];
-const section=(children:React.ReactNode)=><div className="stack">{children}</div>;
+const title=names[page];const stats:[string,number,LucideIcon][]=[["Clientes cadastrados",clients.length,Users],["Consultorias em análise",0,Search],["Aguardando revisão",review==="Em revisão"?1:0,ClipboardCheck],["Relatórios aprovados",review==="Aprovado"?1:0,FileText],["Planejamentos criados",0,CalendarDays],["Consultorias entregues",0,Check],["Vídeos analisados",0,Video]];
+const section=(children:ReactNode)=><div className="stack">{children}</div>;
 return <div className="shell">
 <aside className={`sidebar ${open?"open":""}`}><div className="logo"><div className="logo-symbol"><Settings2 size={28}/></div><div><b>ADAM</b><div style={{fontSize:10,color:"#b9a3ec"}}>CONSULTORIA IA</div></div></div><nav>{names.map((n,i)=>{const Icon=icons[i];return <button key={n} className={`nav ${page===i?"active":""}`} onClick={()=>go(i)}><Icon size={17}/>{n}</button>})}</nav><div className="muted" style={{margin:"30px 14px 0",fontSize:11}}>ADAM Consultoria IA • Prévia independente</div></aside>
 <main className="page"><header className="top"><div className="row"><button aria-label="Abrir menu" className="btn secondary mobilemenu" onClick={()=>setOpen(!open)}><Menu size={18}/></button><div><div className="eyebrow">Central de inteligência</div><h1 className="title">{title}</h1></div></div><div className="row"><span className="demo">● AMBIENTE DEMONSTRATIVO</span><div className="pill">Admin master — simulação</div></div></header>
