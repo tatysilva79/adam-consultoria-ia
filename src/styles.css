@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{font-family:Inter,system-ui,sans-serif;color:#F8FAFC;background:#101525;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+.shell{min-height:100vh;display:flex;background:radial-gradient(ellipse at 60% -20%,#42217655 0,transparent 55%),#101525}
+.sidebar{width:262px;flex-shrink:0;background:#14162a;border-right:1px solid #ffffff15;padding:24px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{display:flex;align-items:center;gap:12px;margin:4px 10px 30px}.logo-symbol{display:grid;place-items:center;width:45px;height:45px;border-radius:14px;background:#43217d;color:#FFD54A}
+.nav{display:flex;gap:10px;align-items:center;color:#b6bed2;border:0;background:transparent;padding:12px 13px;border-radius:11px;width:100%;text-align:left;font-weight:500;font-size:13px}
+.nav:hover,.nav.active{background:#7C3AED2c;color:#fff}.nav.active{border:1px solid #a78bfa38}.nav.active svg{color:#FFD54A}
+.page{flex:1;min-width:0;padding:30px 38px;max-width:1550px;margin:0 auto;width:100%}
+.top{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:27px}
+.title{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.8px;margin:0 0 6px}.muted{color:#a9b1c8;font-size:13px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c4a7ff;font-weight:700}
+.panel{background:linear-gradient(155deg,#22253e,#1c2035);border:1px solid #ffffff18;border-radius:18px;padding:22px}
+.panel h3{margin:0 0 12px;font-size:17px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.stat-value{font-size:30px;font-weight:800;margin-top:12px}.stat-icon{width:36px;height:36px;border-radius:10px;background:#7C3AED30;color:#FFD54A;display:grid;place-items:center}
+.btn{border:0;border-radius:10px;padding:12px 18px;font-weight:700;color:#fff;background:#7C3AED;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.secondary{background:#333351;border:1px solid #ffffff24}.btn.gold{background:#FFD54A;color:#221a36}
+.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#392954;color:#d9c8ff;font-size:11px;font-weight:700}
+.input{width:100%;padding:12px 13px;background:#12182b;color:white;border:1px solid #ffffff27;border-radius:10px;outline:none}.input:focus{border-color:#a78bfa}
+.field{display:flex;flex-direction:column;gap:8px;margin:12px 0}.field label{font-size:12px;color:#d5d8e8;font-weight:600}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.between{justify-content:space-between}.stack{display:flex;flex-direction:column;gap:16px}
+.table{width:100%;border-collapse:collapse;font-size:13px;text-align:left}.table th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#98a4bc}.table th,.table td{padding:14px;border-bottom:1px solid #ffffff13}
+.banner{border-radius:20px;background:linear-gradient(105deg,#4d2588,#272147 75%);border:1px solid #a78bfa52;padding:30px;margin-bottom:22px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.bars{height:135px;display:flex;align-items:end;gap:14px;padding-top:15px}.bar{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(#a78bfa,#6d28d9);min-height:6px}
+.demo{display:inline-flex;align-items:center;gap:6px;font-size:11px;padding:7px 10px;border:1px solid #eab30866;color:#ffe49c;border-radius:99px;background:#bd7a0915}
+.mobilemenu{display:none}
+@media(max-width:1120px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page{padding:24px}}
+@media(max-width:740px){.sidebar{display:none}.sidebar.open{display:block;position:fixed;z-index:10;box-shadow:0 0 0 100vmax #0009}.page{padding:18px}.cols2{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mobilemenu{display:inline-flex}.banner{padding:22px;align-items:start;flex-direction:column}.table{display:block;overflow-x:auto}.title{font-size:25px}}
